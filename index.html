@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScholarStudio | L'Excellence Académique Algérienne</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* VARIABLES & RESET */
+        :root {
+            --navy: #0A192F;
+            --navy-light: #112240;
+            --gold: #D4AF37;
+            --gold-light: #F3E5AB;
+            --white: #FFFFFF;
+            --bg-color: #F8F9FA;
+            --text-gray: #64748B;
+            --ig-gradient: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--bg-color); color: var(--navy); line-height: 1.6; overflow-x: hidden; }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
+        a { text-decoration: none; }
+
+        /* HEADER */
+        header { background: rgba(10, 25, 47, 0.95); backdrop-filter: blur(10px); padding: 15px 5%; display: flex; align-items: center; justify-content: space-between; position: fixed; top: 0; width: 100%; z-index: 1000; border-bottom: 2px solid var(--gold); }
+        .logo-container { display: flex; align-items: center; gap: 15px; }
+        .logo-container img { height: 45px; border-radius: 6px; }
+        .logo-container h1 { color: var(--white); font-size: 22px; letter-spacing: 1px; }
+        .logo-container span { color: var(--gold); }
+        .nav-btn { background: var(--ig-gradient); color: var(--white); padding: 10px 20px; border-radius: 30px; font-weight: 600; font-size: 14px; transition: 0.3s; }
+        .nav-btn:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(220, 39, 67, 0.4); }
+
+        /* HERO SECTION */
+        .hero { margin-top: 70px; padding: 80px 5%; background: linear-gradient(135deg, var(--navy), var(--navy-light)); color: var(--white); text-align: center; position: relative; overflow: hidden; }
+        .hero::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('https://www.transparenttextures.com/patterns/cubes.png'); opacity: 0.1; pointer-events: none; }
+        .hero-badge { display: inline-block; background: rgba(212, 175, 55, 0.2); color: var(--gold); padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-bottom: 20px; border: 1px solid var(--gold); }
+        .hero h2 { font-size: 48px; margin-bottom: 20px; line-height: 1.2; }
+        .hero h2 span { color: var(--gold); }
+        .hero p { font-size: 18px; color: #cbd5e1; max-width: 700px; margin: 0 auto 40px auto; }
+        .darija-highlight { font-weight: 600; color: var(--white); background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px; }
+        
+        .btn-main { display: inline-flex; align-items: center; justify-content: center; background: var(--ig-gradient); color: var(--white); padding: 18px 40px; border-radius: 40px; font-weight: 800; font-size: 18px; box-shadow: 0 10px 30px rgba(220, 39, 67, 0.4); transition: all 0.3s ease; position: relative; z-index: 2; }
+        .btn-main:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(220, 39, 67, 0.6); }
+
+        /* HOW IT WORKS (ANIMATED GUIDE) & PREMIUM DEMO */
+        .showcase-section { padding: 80px 5%; max-width: 1300px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
+        .showcase-half { flex: 1; min-width: 300px; }
+        
+        .section-title { font-size: 36px; margin-bottom: 20px; color: var(--navy); }
+        .section-subtitle { font-size: 18px; color: var(--text-gray); margin-bottom: 40px; }
+
+        /* Animated Chat Guide */
+        .chat-container { background: var(--white); border-radius: 16px; padding: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); border: 1px solid #eee; }
+        .chat-msg { margin-bottom: 15px; padding: 12px 18px; border-radius: 18px; max-width: 85%; font-size: 14px; position: relative; opacity: 0; animation: fadeUp 0.5s forwards; }
+        .chat-student { background: #f1f5f9; color: var(--navy); border-bottom-left-radius: 4px; animation-delay: 0.5s; }
+        .chat-agency { background: var(--ig-gradient); color: var(--white); margin-left: auto; border-bottom-right-radius: 4px; animation-delay: 2s; }
+        .chat-student-2 { background: #f1f5f9; color: var(--navy); border-bottom-left-radius: 4px; animation-delay: 3.5s; }
+        .chat-agency-2 { background: var(--navy); color: var(--white); margin-left: auto; border-bottom-right-radius: 4px; animation-delay: 5s; border: 1px solid var(--gold); }
+        
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Premium Demo (Blurred Document) */
+        .demo-doc { background: var(--white); border-radius: 12px; padding: 30px; box-shadow: 0 15px 50px rgba(10, 25, 47, 0.1); border-top: 5px solid var(--gold); position: relative; user-select: none; }
+        .demo-content { height: 280px; overflow: hidden; -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%); mask-image: linear-gradient(to bottom, black 30%, transparent 100%); }
+        .demo-content h4 { color: var(--navy); margin-bottom: 15px; font-size: 20px; }
+        .demo-content p { color: #444; margin-bottom: 12px; font-size: 14px; text-align: justify; }
+        .math-font { font-family: 'Times New Roman', serif; font-style: italic; font-size: 16px; display: block; text-align: center; margin: 15px 0; }
+        .overlay-btn { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); background: var(--navy); color: var(--gold); padding: 12px 25px; border-radius: 30px; font-weight: bold; border: 2px solid var(--gold); box-shadow: 0 10px 20px rgba(0,0,0,0.1); transition: 0.3s; white-space: nowrap; }
+        .overlay-btn:hover { background: var(--gold); color: var(--navy); }
+
+        /* SERVICES GRIDS */
+        .services { background: var(--white); padding: 80px 5%; }
+        .grid-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-bottom: 60px; }
+        
+        .card { background: var(--bg-color); padding: 35px 25px; border-radius: 16px; text-align: center; border: 1px solid #eaeaea; transition: 0.3s; position: relative; overflow: hidden; }
+        .card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--navy); transition: 0.3s; }
+        .card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
+        .card:hover::before { background: var(--gold); }
+        
+        .card-icon { font-size: 40px; margin-bottom: 15px; }
+        .card h3 { color: var(--navy); font-size: 22px; margin-bottom: 10px; }
+        .card p { color: var(--text-gray); font-size: 15px; margin-bottom: 20px; }
+        
+        .tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 25px; }
+        .tag { background: var(--white); color: var(--navy); padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; border: 1px solid #ddd; }
+        
+        .btn-card { display: block; background: var(--navy); color: var(--white); padding: 12px; border-radius: 8px; font-weight: 600; transition: 0.3s; }
+        .btn-card:hover { background: var(--ig-gradient); color: var(--white); }
+
+        /* FOOTER */
+        footer { background: var(--navy); color: var(--white); text-align: center; padding: 40px 20px; }
+        footer p { color: #8892b0; font-size: 14px; margin-top: 10px; }
+        .baridi-badge { display: inline-block; background: var(--white); color: var(--navy); padding: 5px 15px; border-radius: 20px; font-size: 12px; font-weight: bold; margin-top: 15px; }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="655197447_18069976574270316_7436711588716172655_n.jpg" alt="ScholarStudio Logo" onerror="this.style.display='none'">
+            <h1>SCHOLAR<span>STUDIO</span></h1>
+        </div>
+        <a href="https://www.instagram.com/scholarstudio.dz/" target="_blank" class="nav-btn">📩 Commander</a>
+    </header>
+
+    <section class="hero">
+        <div class="hero-badge">Agence Académique Premium - Algérie</div>
+        <h2>L'Excellence Académique.<br><span>100% Sur Mesure.</span></h2>
+        <p>Men l'BAC l'soutenance, <span class="darija-highlight">7na m3ak</span>. De la rédaction de mémoires LMD aux résumés intensifs BAC 2026, ScholarStudio génère vos documents avec une qualité irréprochable. Conformité MESRS garantie.</p>
+        <a href="https://www.instagram.com/scholarstudio.dz/" target="_blank" class="btn-main">Demander un Devis sur Instagram</a>
+    </section>
+
+    <section class="showcase-section">
+        <div class="showcase-half">
+            <h2 class="section-title">Kifech temchi l'opération ?</h2>
+            <p class="section-subtitle">Oubliez la paperasse. Commandez votre document en 3 messages directs. C'est simple, rapide et 100% sécurisé via BaridiMob.</p>
+            
+            <div class="chat-container">
+                <div class="chat-msg chat-student">
+                    <strong>Étudiant :</strong> Salam ! J'ai besoin d'une présentation PPT de 15 slides sur la macroéconomie (L2) en Français.
+                </div>
+                <div class="chat-msg chat-agency">
+                    <strong>ScholarStudio 🎓:</strong> Marhba bik ! C'est noté. Le devis est de 3000 DA. Voici notre RIP BaridiMob pour confirmer la commande.
+                </div>
+                <div class="chat-msg chat-student-2">
+                    <strong>Étudiant :</strong> Reçu envoyé ! ✔️
+                </div>
+                <div class="chat-msg chat-agency-2">
+                    <strong>ScholarStudio 🎓:</strong> Paiement validé. Votre présentation (Design premium + Notes de discours) vous sera envoyée ici dans quelques heures. 🚀
+                </div>
+            </div>
+        </div>
+
+        <div class="showcase-half">
+            <div class="demo-doc">
+                <div class="demo-content">
+                    <h4>Chapitre 2 : Cadre Méthodologique</h4>
+                    <p>Dans le contexte du système LMD algérien, l'approche empirique nécessite une rigueur absolue. Selon les normes APA (7ème édition), l'échantillonnage doit refléter la population mère.</p>
+                    <span class="math-font">Variance : V(X) = E(X²) - [E(X)]²</span>
+                    <p>Cette formule démontre que l'impact des variables endogènes est soumis à des fluctuations stochastiques majeures. Les résultats obtenus via notre analyse SPSS confirment l'hypothèse (H1)...</p>
+                    <p>En analysant la matrice de corrélation, on observe une dépendance linéaire forte entre...</p>
+                    <p>Les recommandations stratégiques pour l'entreprise Sonatrach se basent sur...</p>
+                </div>
+                <a href="https://www.instagram.com/scholarstudio.dz/" target="_blank" class="overlay-btn">🔒 Débloquer la qualité Premium</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <h2 class="section-title" style="text-align: center;">🎓 Pôle Universitaire (LMD & MESRS)</h2>
+        <p class="section-subtitle" style="text-align: center; max-width: 600px; margin: 0 auto 50px auto;">Soutenance mrigla, mémoire validé. Des rendus professionnels pour Licence, Master et Doctorat.</p>
+        
+        <div class="grid-container">
+            <div class="card">
+                <div class="card-icon">📚</div>
+                <h3>Mémoires & PFE</h3>
+                <p>Rédaction structurée, plan de travail détaillé, revue de littérature et normes APA strictes.</p>
+                <div class="tags"><span class="tag">Français</span><span class="tag">English</span><span class="tag">العربية</span></div>
+                <a href="https://www.instagram.com/scholarstudio.dz/" target="_blank" class="btn-card">Commander (via DM)</a>
+            </div>
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h3>Projets & Présentations</h3>
+                <p>Création de slides de soutenance de luxe, exposés interactifs, et projets complets (ENS/ESI).</p>
+                <div class="tags"><span class="tag">PowerPoint</span><span class="tag">Word</span><span class="tag">Speech Notes</span></div>
+                <a href="https://www.instagram.com/scholarstudio.dz/" target="_blank" class="btn-card">Commander (via DM)</a>
+            </div>
+            <div class="card">
+                <div class="card-icon">📈</div>
+                <h3>Analyse de Données</h3>
+                <p>Traitement statistique, économétrie et interprétation académique pour la partie pratique.</p>
+                <div class="tags"><span class="tag">SPSS</span><span class="tag">Python</span><span class="tag">EViews</span></div>
+                <a href="https://www.instagram.com/scholarstudio.dz/" target="_blank" class="btn-card">Commander (via DM)</a>
+            </div>
+        </div>
+
+        <h2 class="section-title" style="text-align: center; margin-top: 80px;">📐 Pôle BAC 2026 (Toutes les الشعب)</h2>
+        <p class="section-subtitle" style="text-align: center; max-width: 600px; margin: 0 auto 50px auto;">Makach kifach t'rati l'année. Les meilleurs résumés et astuces d'examens (Explications en Darija, Lois en Français).</p>
+        
+        <div class="grid-container">
+            <div class="card">
+                <div class="card-icon">🔬</div>
+                <h3>Filières Scientifiques</h3>
+                <p>Maths, Physique, Sciences. Résumés intensifs, méthodologie de résolution et pièges à éviter.</p>
+                <div class="tags"><span class="tag">علوم تجريبية</span><span class="tag">رياضيات</span></div>
+                <a href="https://www.instagram.com/scholarstudio.dz/" target="_blank" class="btn-card">Acheter le Pack (via DM)</a>
+            </div>
+            <div class="card">
+                <div class="card-icon">⚙️</div>
+                <h3>Gestion & Techniques</h3>
+                <p>Génie civil, mécanique, comptabilité. L'essentiel et les bases pour assurer la moyenne f'l BAC.</p>
+                <div class="tags"><span class="tag">تقني رياضي</span><span class="tag">تسيير واقتصاد</span></div>
+                <a href="https://www.instagram.com/scholarstudio.dz/" target="_blank" class="btn-card">Acheter le Pack (via DM)</a>
+            </div>
+            <div class="card">
+                <div class="card-icon">📝</div>
+                <h3>Lettres & Langues</h3>
+                <p>Méthodologie de dissertation philosophique (Arabe) et fiches de révision en langues (FR/EN/ES).</p>
+                <div class="tags"><span class="tag">آداب وفلسفة</span><span class="tag">لغات أجنبية</span></div>
+                <a href="https://www.instagram.com/scholarstudio.dz/" target="_blank" class="btn-card">Acheter le Pack (via DM)</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <img src="655197447_18069976574270316_7436711588716172655_n.jpg" alt="Logo" style="height: 40px; border-radius: 4px; margin-bottom: 10px;" onerror="this.style.display='none'">
+        <h2>ScholarStudio Algérie</h2>
+        <p>© 2026 Tous droits réservés. L'agence de tutorat et d'assistance académique premium.</p>
+        <div class="baridi-badge">💳 Paiements 100% sécurisés via BaridiMob</div>
+    </footer>
+
+</body>
+</html>
